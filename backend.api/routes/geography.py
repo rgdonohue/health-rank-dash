@@ -8,7 +8,7 @@ API endpoints for geographic data discovery (states, counties).
 from fastapi import APIRouter, Depends, Path
 from typing import List, Dict, Any
 
-from ..dependencies.data_service import get_data_service, DataService
+from backend.api.dependencies.data_service import get_data_service, DataService
 
 router = APIRouter()
 

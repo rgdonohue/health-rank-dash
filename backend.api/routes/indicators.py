@@ -8,7 +8,7 @@ API endpoints for health indicator discovery and metadata.
 from fastapi import APIRouter, Depends
 from typing import List, Dict, Any
 
-from ..dependencies.data_service import get_data_service, DataService
+from backend.api.dependencies.data_service import get_data_service, DataService
 
 router = APIRouter()
 

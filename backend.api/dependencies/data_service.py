@@ -14,8 +14,8 @@ import pandas as pd
 
 from data.etl.parser import CHRParser
 from data.etl.validator import CHRDataValidator
-from ..core.config import get_settings
-from ..core.exceptions import DataProcessingError, NotFoundError
+from backend.api.core.config import get_settings
+from backend.api.core.exceptions import DataProcessingError, NotFoundError
 
 
 class DataService:

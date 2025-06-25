@@ -13,10 +13,10 @@ import time
 import uvicorn
 from typing import Dict, Any
 
-from .core.config import get_settings
-from .core.exceptions import HealthRankException
-from .dependencies.data_service import get_data_service
-from .routes import health, indicators, geography, data
+from backend.api.core.config import get_settings
+from backend.api.core.exceptions import HealthRankException
+from backend.api.dependencies.data_service import get_data_service
+from backend.api.routes import health, indicators, geography, data
 
 # Application settings
 settings = get_settings()

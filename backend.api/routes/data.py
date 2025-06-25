@@ -8,8 +8,8 @@ Main data query endpoints for CHR data with filtering capabilities.
 from fastapi import APIRouter, Depends, Query
 from typing import List, Dict, Any, Optional
 
-from ..dependencies.data_service import get_data_service, DataService
-from ..core.exceptions import BadRequestError
+from backend.api.dependencies.data_service import get_data_service, DataService
+from backend.api.core.exceptions import BadRequestError
 
 router = APIRouter()
 

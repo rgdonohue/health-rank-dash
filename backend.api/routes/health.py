@@ -9,7 +9,7 @@ from fastapi import APIRouter, Depends
 from typing import Dict, Any
 import time
 
-from ..dependencies.data_service import get_data_service, DataService
+from backend.api.dependencies.data_service import get_data_service, DataService
 
 router = APIRouter()
 
