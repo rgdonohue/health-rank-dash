@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthRankDash - County Health Rankings Explorer</title>
+    
+    <!-- Bulma CSS Framework for accessible, responsive design -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    <!-- Alpine.js for reactive state management -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Custom CSS for accessibility and print styles -->
+    <link rel="stylesheet" href="../static/css/app.css">
+    
+    <!-- ARIA live region for screen reader announcements -->
+    <div id="announcements" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+</head>
+
+<body>
+    <!-- Skip navigation link for accessibility -->
+    <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+    
+    <!-- Main application container -->
+    <div x-data="healthDashboard()" x-init="init()" class="container is-fluid">
+        
+        <!-- Header section -->
+        <header class="hero is-primary is-small" role="banner">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title is-3">
+                        <span aria-label="Health Rank Dashboard">HealthRankDash</span>
+                    </h1>
+                    <h2 class="subtitle is-5">
+                        County Health Rankings Data Explorer
+                    </h2>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content area -->
+        <main id="main-content" role="main" class="section">
+            <div class="columns">
+                
+                <!-- Filter Panel (Left Sidebar) -->
+                <aside class="column is-3" role="complementary" aria-label="Filter Controls">
+                    <div class="card">
+                        <header class="card-header">
+                            <h3 class="card-header-title is-size-5">
+                                <span class="icon" aria-hidden="true">
+                                    <i class="fas fa-filter"></i>
+                                </span>
+                                Filter Data
+                            </h3>
+                        </header>
+                        
+                        <div class="card-content">
+                            <!-- Year Selection -->
+                            <div class="field">
+                                <label for="year-select" class="label">Year</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select 
+                                            id="year-select"
+                                            x-model="selectedYear" 
+                                            @change="onFilterChange()"
+                                            aria-describedby="year-help"
+                                        >
+                                            <option value="">Select Year</option>
+                                            <template x-for="year in availableYears" :key="year">
+                                                <option :value="year" x-text="year"></option>
+                                            </template>
+                                        </select>
+                                    </div>
+                                </div>
+                                <p id="year-help" class="help">Choose data collection year</p>
+                            </div>
+
+                            <!-- State Selection -->
+                            <div class="field">
+                                <label for="state-select" class="label">State</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select 
+                                            id="state-select"
+                                            x-model="selectedState" 
+                                            @change="loadCounties(); onFilterChange()"
+                                            aria-describedby="state-help"
+                                            :disabled="isLoading"
+                                        >
+                                            <option value="">Select State</option>
+                                            <template x-for="state in states" :key="state">
+                                                <option :value="state" x-text="state"></option>
+                                            </template>
+                                        </select>
+                                    </div>
+                                </div>
+                                <p id="state-help" class="help">Choose state to filter counties</p>
+                            </div>
+
+                            <!-- County Selection -->
+                            <div class="field">
+                                <label for="county-select" class="label">County (Optional)</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select 
+                                            id="county-select"
+                                            x-model="selectedCounty" 
+                                            @change="onFilterChange()"
+                                            aria-describedby="county-help"
+                                            :disabled="!selectedState || isLoading"
+                                        >
+                                            <option value="">All Counties</option>
+                                            <template x-for="county in counties" :key="county">
+                                                <option :value="county" x-text="county"></option>
+                                            </template>
+                                        </select>
+                                    </div>
+                                </div>
+                                <p id="county-help" class="help">Optionally filter by specific county</p>
+                            </div>
+
+                            <!-- Health Indicator Selection -->
+                            <div class="field">
+                                <label for="indicator-select" class="label">Health Indicator</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select 
+                                            id="indicator-select"
+                                            x-model="selectedIndicator" 
+                                            @change="onFilterChange()"
+                                            aria-describedby="indicator-help"
+                                            :disabled="isLoading"
+                                        >
+                                            <option value="">Select Indicator</option>
+                                            <template x-for="indicator in indicators" :key="indicator.id">
+                                                <option :value="indicator.id" x-text="indicator.name"></option>
+                                            </template>
+                                        </select>
+                                    </div>
+                                </div>
+                                <p id="indicator-help" class="help">Choose health metric to display</p>
+                            </div>
+
+                            <!-- Control Buttons -->
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button 
+                                        class="button is-primary"
+                                        @click="loadData()"
+                                        :disabled="!canLoadData || isLoading"
+                                        :aria-busy="isLoading"
+                                        type="button"
+                                    >
+                                        <span class="icon" aria-hidden="true">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                        <span x-text="isLoading ? 'Loading...' : 'Load Data'"></span>
+                                    </button>
+                                </div>
+                                <div class="control">
+                                    <button 
+                                        class="button is-light"
+                                        @click="clearFilters()"
+                                        type="button"
+                                        :disabled="isLoading"
+                                    >
+                                        <span class="icon" aria-hidden="true">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                        <span>Clear</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Display Options Card -->
+                    <div class="card mt-4">
+                        <header class="card-header">
+                            <h3 class="card-header-title is-size-6">Display Options</h3>
+                        </header>
+                        <div class="card-content">
+                            <!-- Confidence Interval Toggle -->
+                            <div class="field">
+                                <label class="checkbox">
+                                    <input 
+                                        type="checkbox" 
+                                        x-model="showConfidenceIntervals"
+                                        aria-describedby="ci-help"
+                                    >
+                                    Show Confidence Intervals
+                                </label>
+                                <p id="ci-help" class="help is-size-7">Display 95% confidence intervals</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Data Display Area (Main Content) -->
+                <section class="column is-9" role="main" aria-label="Data Results">
+                    
+                    <!-- Loading Indicator -->
+                    <div x-show="isLoading" class="notification is-info" role="status" aria-live="polite">
+                        <div class="level">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span class="icon">
+                                        <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+                                    </span>
+                                    <span>Loading health data...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error Display -->
+                    <div x-show="error" class="notification is-danger" role="alert" aria-live="assertive">
+                        <button class="delete" @click="error = null" aria-label="Close error message"></button>
+                        <strong>Error:</strong> <span x-text="error"></span>
+                    </div>
+
+                    <!-- Data Summary -->
+                    <div x-show="tableData.length > 0 && !isLoading" class="notification is-success is-light">
+                        <div class="level">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <span>
+                                        Showing <strong x-text="tableData.length"></strong> 
+                                        <span x-text="tableData.length === 1 ? 'county' : 'counties'"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="level-right">
+                                <div class="level-item">
+                                    <button 
+                                        class="button is-small is-success"
+                                        @click="exportCSV()"
+                                        :disabled="tableData.length === 0"
+                                        type="button"
+                                        aria-describedby="export-help"
+                                    >
+                                        <span class="icon">
+                                            <i class="fas fa-download" aria-hidden="true"></i>
+                                        </span>
+                                        <span>Export CSV</span>
+                                    </button>
+                                    <p id="export-help" class="sr-only">Download data as CSV file</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Table -->
+                    <div x-show="tableData.length > 0 && !isLoading" class="table-container">
+                        <table class="table is-striped is-hoverable is-fullwidth" role="table">
+                            <caption class="sr-only">
+                                County health rankings data for <span x-text="selectedIndicator || 'selected indicator'"></span>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th 
+                                        scope="col"
+                                        tabindex="0"
+                                        @click="sortBy('county')"
+                                        @keydown.enter="sortBy('county')"
+                                        @keydown.space.prevent="sortBy('county')"
+                                        :aria-sort="getSortDirection('county')"
+                                        class="is-clickable"
+                                    >
+                                        County
+                                        <span class="icon is-small" aria-hidden="true">
+                                            <i :class="getSortIcon('county')"></i>
+                                        </span>
+                                    </th>
+                                    <th 
+                                        scope="col"
+                                        tabindex="0"
+                                        @click="sortBy('state')"
+                                        @keydown.enter="sortBy('state')"
+                                        @keydown.space.prevent="sortBy('state')"
+                                        :aria-sort="getSortDirection('state')"
+                                        class="is-clickable"
+                                    >
+                                        State
+                                        <span class="icon is-small" aria-hidden="true">
+                                            <i :class="getSortIcon('state')"></i>
+                                        </span>
+                                    </th>
+                                    <th 
+                                        scope="col"
+                                        tabindex="0"
+                                        @click="sortBy('rawvalue')"
+                                        @keydown.enter="sortBy('rawvalue')"
+                                        @keydown.space.prevent="sortBy('rawvalue')"
+                                        :aria-sort="getSortDirection('rawvalue')"
+                                        class="is-clickable"
+                                    >
+                                        Value
+                                        <span class="icon is-small" aria-hidden="true">
+                                            <i :class="getSortIcon('rawvalue')"></i>
+                                        </span>
+                                    </th>
+                                    <th 
+                                        x-show="showConfidenceIntervals"
+                                        scope="col"
+                                        tabindex="0"
+                                        @click="sortBy('ci_low')"
+                                        @keydown.enter="sortBy('ci_low')"
+                                        @keydown.space.prevent="sortBy('ci_low')"
+                                        :aria-sort="getSortDirection('ci_low')"
+                                        class="is-clickable"
+                                    >
+                                        CI Low
+                                        <span class="icon is-small" aria-hidden="true">
+                                            <i :class="getSortIcon('ci_low')"></i>
+                                        </span>
+                                    </th>
+                                    <th 
+                                        x-show="showConfidenceIntervals"
+                                        scope="col"
+                                        tabindex="0"
+                                        @click="sortBy('ci_high')"
+                                        @keydown.enter="sortBy('ci_high')"
+                                        @keydown.space.prevent="sortBy('ci_high')"
+                                        :aria-sort="getSortDirection('ci_high')"
+                                        class="is-clickable"
+                                    >
+                                        CI High
+                                        <span class="icon is-small" aria-hidden="true">
+                                            <i :class="getSortIcon('ci_high')"></i>
+                                        </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template x-for="(row, index) in sortedData" :key="index">
+                                    <tr>
+                                        <td x-text="row.county"></td>
+                                        <td x-text="row.state"></td>
+                                        <td x-text="formatValue(row.rawvalue)"></td>
+                                        <td x-show="showConfidenceIntervals" x-text="formatValue(row.ci_low)"></td>
+                                        <td x-show="showConfidenceIntervals" x-text="formatValue(row.ci_high)"></td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- No Data Message -->
+                    <div x-show="!isLoading && tableData.length === 0 && (selectedState || selectedIndicator)" 
+                         class="notification is-warning">
+                        <div class="content has-text-centered">
+                            <h4 class="title is-5">No Data Found</h4>
+                            <p>No health data matches your current filter selection. Try adjusting your filters or selecting different criteria.</p>
+                        </div>
+                    </div>
+
+                    <!-- Welcome Message -->
+                    <div x-show="!isLoading && tableData.length === 0 && !selectedState && !selectedIndicator" 
+                         class="notification is-info is-light">
+                        <div class="content has-text-centered">
+                            <h4 class="title is-4">Welcome to HealthRankDash</h4>
+                            <p class="subtitle is-6">
+                                Explore County Health Rankings data by selecting filters from the panel on the left.
+                            </p>
+                            <div class="content">
+                                <ol>
+                                    <li>Choose a <strong>Year</strong> for data collection</li>
+                                    <li>Select a <strong>State</strong> to explore</li>
+                                    <li>Pick a <strong>Health Indicator</strong> to analyze</li>
+                                    <li>Click <strong>Load Data</strong> to view results</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>HealthRankDash</strong> - County Health Rankings Explorer<br>
+                    Data source: <a href="https://www.countyhealthrankings.org/" target="_blank" rel="noopener">County Health Rankings</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Alpine.js Application Logic -->
+    <script src="../static/js/app.js"></script>
+</body>
+</html>
