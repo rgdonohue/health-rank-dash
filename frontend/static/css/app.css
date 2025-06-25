@@ -223,6 +223,20 @@
     animation: spin 1s linear infinite;
 }
 
+/* Smooth loading state transitions */
+.notification {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Progressive enhancement indicator */
+.js-enabled .no-js-warning {
+    display: none;
+}
+
+.no-js .js-required {
+    display: none;
+}
+
 /* Disabled state styling */
 .button:disabled,
 .select select:disabled {

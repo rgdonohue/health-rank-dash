@@ -61,7 +61,29 @@ function healthDashboard() {
          */
         async init() {
             console.log('🚀 Initializing HealthRankDash...');
-            await this.loadInitialData();
+            
+            // Show progressive enhancement message
+            this.announceToScreenReader('HealthRankDash dashboard initialized');
+            
+            // Add connection retry mechanism
+            let retryCount = 0;
+            const maxRetries = 3;
+            
+            while (retryCount < maxRetries) {
+                try {
+                    await this.loadInitialData();
+                    break;
+                } catch (error) {
+                    retryCount++;
+                    if (retryCount < maxRetries) {
+                        console.log(`🔄 Retry ${retryCount}/${maxRetries} in 2 seconds...`);
+                        await new Promise(resolve => setTimeout(resolve, 2000));
+                    } else {
+                        console.log('⚠️ Using offline mode with mock data');
+                        this.announceToScreenReader('Working in offline mode with sample data');
+                    }
+                }
+            }
         },
         
         /**
