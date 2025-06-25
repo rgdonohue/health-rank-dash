@@ -9,8 +9,10 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
+from fastapi import Path as FastAPIPath
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import ValidationError
 import uvicorn
 import pandas as pd
 import json
@@ -110,9 +112,11 @@ async def get_states():
         
     return sorted(data_service['data']['state'].unique().tolist())
 
-# Get counties by state
+# Get counties by state with validation
 @app.get("/api/v1/counties/{state}")
-async def get_counties_by_state(state: str):
+async def get_counties_by_state(
+    state: str = FastAPIPath(..., description="State name", min_length=2, max_length=50)
+):
     """Get counties for a given state."""
     if data_service is None:
         raise HTTPException(status_code=503, detail="Data service not initialized")
@@ -133,14 +137,14 @@ async def get_counties_by_state(state: str):
         
     return sorted(counties, key=lambda x: x['county'])
 
-# Main data endpoint
+# Main data endpoint with proper validation
 @app.get("/api/v1/data")
 async def get_data(
-    state: Optional[str] = None,
-    fipscode: Optional[str] = None,
-    indicator: Optional[str] = None,
-    year: Optional[int] = None,
-    limit: Optional[int] = None
+    state: Optional[str] = Query(None, description="Filter by state name", min_length=2, max_length=50),
+    fipscode: Optional[str] = Query(None, description="Filter by 5-digit FIPS code", regex=r"^\d{5}$"),
+    indicator: Optional[str] = Query(None, description="Filter by indicator ID", regex=r"^v\d{3}$"),
+    year: Optional[int] = Query(None, description="Filter by year", ge=2000, le=2030),
+    limit: Optional[int] = Query(None, description="Maximum results", ge=1, le=10000)
 ):
     """Get CHR data with filtering."""
     if data_service is None:
