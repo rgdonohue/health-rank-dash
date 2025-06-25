@@ -1,4 +1,4 @@
-# 🛠 Agentic Backend Playbook
+# 🛠 Agentic Backend Playbook v0.2 (Experimental)
 
 **For AI-Augmented Development of Data Pipelines, APIs, and Stateful Systems**
 
@@ -6,12 +6,15 @@
 
 ## 🔍 Why This Playbook Exists
 
-Drawing from the successes and failures of *Tilecraft*, *No-SQL Atlas*, and the recent *HealthRankDash* documentation experiments, this playbook offers insights for backend-heavy agentic workflows. It integrates:
+This revision fuses hard-won lessons from *Tilecraft*, *No-SQL Atlas*, and the HealthRankDash documentation experiment **plus** practical operational patterns we've developed. It adds:
 
-* Architectural patterns from production case studies
-* Behavioral insights from AI system testing
-* Lessons on documentation overload
-* Measurement frameworks for empirical benchmarking
+* Practical prompt templates for tricky backend logic
+* Explicit guidance on LLM failure modes & mitigation
+* Prompt versioning + provenance tracking
+* Working fallback patterns with tests
+* Expanded testing techniques beyond unit coverage
+
+**Use as experimental protocol—not proven methodology.**
 
 ## ⚠️ **Critical Limitations & Context**
 
@@ -58,29 +61,36 @@ Drawing from the successes and failures of *Tilecraft*, *No-SQL Atlas*, and the 
 
 ---
 
-## 🧱 Contextual Principles
+## 🧱 Experimental Principles
 
 **Note:** These principles worked in our specific case but may not apply universally.
 
-### 1. **AI Requires Significant Human Iteration**
+### 1. **AI ≠ Engineer—It's a Junior Dev With Memory Issues**
 
 Current research shows AI-assisted development requires substantial human review and iteration, regardless of architecture complexity. Don't expect AI to work autonomously even with "clear boundaries."
+
+**LLM Fragility Warning:** Even with perfect prompts, agents frequently:
+- Lose cross-file context  
+- Forget schema fields  
+- Hallucinate glue code
+
+*Mitigate through narrow prompts, staged commits, and compulsory human review.*
 
 ### 2. **Domain Understanding Trumps Methodology**
 
 Our failure wasn't documentation—it was trying to architect a complex system without understanding the problem domain first. The 114-line solution worked because it focused on solving an actual user need.
 
-### 3. **Incremental Architecture Over False Binaries**
+### 3. **Backend Must Be Decomposed Into Independent Stages**
 
-Avoid extremes of over-engineering vs. hack solutions. There's middle ground between complex DI patterns and single-file scripts.
+Break complex workflows into stages that can be prompted, tested, and validated independently. This worked in our case but may not suit all architectures.
 
 ### 4. **Working Prototype First**
 
 Build something that works for users before optimizing architecture. This aligns with lean startup methodology and agile practices.
 
-### 5. **Test Early, But Don't Over-Test**
+### 5. **Log Everything the Agent Touches (Prompt ⇄ Output)**
 
-AI won't write tests unless required, but don't let testing become another form of premature optimization.
+Track prompt versions and outputs for debugging and improvement. This proved essential in our workflow but adds overhead.
 
 ---
 
@@ -110,67 +120,123 @@ AI won't write tests unless required, but don't let testing become another form 
 
 ## 📦 Architecture Blueprint
 
-### 🔁 Dual-Loop Architecture
+### 🔁 Dual-Loop Pattern
 
-* **Human Loop**: Plan → Edit → Review → Commit
-* **AI Loop**: Prompt → Generate → Evaluate → Retry
-* **Shared State**: YAML Configs, Prompt Templates, Structured Logs
+```
+Human Loop  : Plan ➜ Edit ➜ Review ➜ Commit
+AI Loop     : Prompt ➜ Generate ➜ Evaluate ➜ Retry
+Shared State: YAML Configs • Prompt Templates • Structured Logs
+```
 
 ### 📁 Directory Layout
 
 ```
 /backend
-  ├── schema/             # Pydantic schemas
-  ├── processors/         # Data transformation logic
-  ├── integration/        # API, CLI, routing
-  ├── test/               # Mirror structure of implementation
-  ├── config/             # Staged YAML with diff-check tools
-  └── logs/               # AI prompt/response logs
+  ├── schema/             # Pydantic models
+  ├── processors/         # Row-level + batch transformations
+  ├── integration/        # API, CLI, task routers
+  ├── fallbacks/          # Safe-mode processors & stubs
+  ├── test/               # Mirrors impl structure
+  ├── prompts/            # Version-tracked YAML templates
+  ├── logs/               # Prompt+response JSONL
+  └── config/             # main.yaml • staging.yaml (AI writes here)
 ```
 
 ---
 
-## 🔃 Agentic Backend Workflow
+## 🔃 Experimental Backend Workflow
 
-### Stage 1: Schema & Validation
+**⚠️ Context**: This staged approach worked in our specific case but may not suit all project types.
 
-* AI Task: Generate Pydantic model from data spec
-* Prompt Template:
+| Stage                            | AI Goal                            | Human Prep                      | Mandatory Artifact                              |
+| -------------------------------- | ---------------------------------- | ------------------------------- | ----------------------------------------------- |
+| **1. Schema**                    | Draft strict Pydantic model        | Provide sample CSV or JSON      | `schema/health_ind.py` + `test_schema.py`       |
+| **2. Processor**                 | Transform & validate a record      | Seed failing tests first        | `processors/normalize.py` + `test_normalize.py` |
+| **3. Integration**               | Expose FastAPI endpoint            | Review dependencies, DI pattern | `integration/api.py` + `test_api.py`            |
+| **4. Observability & Fallbacks** | Add structured logging & safe-mode | Specify failure scenarios       | `fallbacks/default_processor.py` + fault tests  |
+| **5. Docs**                      | Auto-summarise modules             | Approve & trim output           | Updated `README.md`                             |
+
+### Example Prompt Template – Complex Conditional Logic
 
 ```yaml
-role: "You are a Python backend engineer."
-task: "Define a schema for county health indicators."
+id: processor_normalize_v1
+version: 1.0.0
+role: "You are a Python backend developer."
+task: |
+  Write `normalize_obesity_rate(record)` that:
+  1. Converts rate strings like "23%" to float 0.23.
+  2. If value is "NA" or empty, return `None` **and** log soft error.
+  3. If value >1, assume it's already a fraction.
 inputs:
-  - field: county_name
-  - field: fips_code
-  - field: obesity_rate
-notes: "Use strict validation for fips_code format."
+  - schema: HealthIndicator (see attached Pydantic model)
+output_contract: "Must pass tests in test_normalize.py"
+logging: "Use logger named 'health.processor'"
 ```
 
-* Test Requirement: Valid + malformed input tests
+### Prompt Failure-Mode Checklist
 
-### Stage 2: Processor Layer
+* Max 400 tokens
+* Explicit success criteria
+* Link only **one** external file via snippet, not full repo
+* Require a log line on exceptions
 
-* AI Task: Build function to normalize fields
-* Human Action: Seed test cases first
-* Logging: Include input, output, error trace
+---
 
-### Stage 3: Integration Layer
+## 🏷️ Prompt Versioning & Provenance (Experimental)
 
-* AI Task: Wire schema + processor into FastAPI
-* Human Action: Inject health checks, dependency injection pattern
-* Prompt Addendum: "Use dependency overrides for testability"
+**Note**: This tracking approach proved valuable in our case but adds operational overhead.
 
-### Stage 4: Test Harness
+1. **ID Tagging** — every YAML prompt has `id` and `version` fields.
+2. **Hash Comment** — AI-generated files receive `# prompt:processor_normalize_v1@1.0.0` header.
+3. **Prompt Log** — store prompt + completion in `logs/prompts/YYYYMMDD.jsonl`.
+4. **Drift Check CI** — nightly job compares file headers to latest prompt versions and flags drift.
 
-* Mirror file structure in `/test/`
-* Use AI to scaffold, human to fill edge cases
-* Example prompt: "Write pytest for processor\_x using mock input"
+---
 
-### Stage 5: Observability & Fallbacks
+## 🔄 Fallback Patterns (Experimental)
 
-* Only introduced **after** functional milestone reached
-* Add structured logging, fallback defaults, API stubs
+**Context**: These patterns helped maintain system stability in our case but may be overkill for simpler applications.
+
+### Default Pass-Through Processor (Template)
+
+```python
+# fallbacks/default_processor.py
+from typing import Any, Dict
+
+def default_processor(record: Dict[str, Any]) -> Dict[str, Any]:
+    """Return record unchanged; attach fallback metadata."""
+    record["_status"] = "FALLBACK"
+    return record
+```
+
+**When to Trigger**: processor raises unhandled error **or** validation fails.
+
+### Testing Fallback
+
+```python
+# test_fallback.py
+from fallbacks.default_processor import default_processor
+
+def test_fallback_adds_status():
+    rec = {"county": "Adams", "rate": "NA"}
+    assert default_processor(rec)["_status"] == "FALLBACK"
+```
+
+Fallbacks keep the pipeline running and provide traceable hydration for later re-processing.
+
+---
+
+## 🧪 Testing Strategy (Expanded)
+
+**Context**: This multi-layered approach worked well in our case but may be excessive for smaller projects.
+
+1. **Contract-First Unit Tests** (required before AI code merge)
+2. **Property-Based Tests** using `hypothesis` for schema edge cases
+3. **Integration Tests** spin up FastAPI with `TestClient`
+4. **Observability Assertions** Parse structured log JSON to assert error paths
+5. **Performance Tests** `ab -n 100 -c 10` latency target <500 ms median
+
+> **AI-Generated vs Human-Refined** Allow AI to scaffold tests, but humans must add at least two edge cases before commit.
 
 ---
 
@@ -255,58 +321,69 @@ Instead of isolated A/B testing:
 
 ---
 
-## ✅ Final Checklist per Backend Component
+## ✅ Final Component Checklist (Experimental)
 
-| Stage       | Artifact          | AI Prompt Required? | Test Coverage? | Human Review? |
-| ----------- | ----------------- | ------------------- | -------------- | ------------- |
-| Schema      | Pydantic model    | ✅                   | ✅              | ✅             |
-| Processor   | Field transformer | ✅                   | ✅              | ✅             |
-| Integration | API / CLI         | ✅                   | ✅              | ✅             |
-| Test Suite  | Pytest module     | ✅ scaffold only     | ✅ manual cases | ✅             |
-| Docs        | README, MVD only  | ✅ (auto-summary)    | n/a            | ✅             |
+**Note**: This detailed tracking worked for our project but may be overkill for simpler applications.
 
----
-
-## �� Common Pitfalls
-
-* "Build the pipeline" single-shot prompts → hallucinated glue code
-* Test-after-the-fact → flaky or missing coverage
-* Overloaded context windows → reduced AI precision
-* Documentation-as-obstacle → time sink with no velocity gain
-* AI writing logging/config before logic → wasted effort
+| Stage       | File(s)            | Test Coverage | Prompt Tag   | Fallback?           | Human Review |
+| ----------- | ------------------ | ------------- | ------------ | ------------------- | ------------ |
+| Schema      | `schema/*.py`      | ≥95% lines    | yes          | n/a                 | yes          |
+| Processor   | `processors/*.py`  | ≥90%          | yes          | `default_processor` | yes          |
+| Integration | `integration/*.py` | ≥85%          | yes          | API 503 stub        | yes          |
+| Fallback    | `fallbacks/*.py`   | 100% lines    | n/a          | —                   | yes          |
+| Docs        | MVD files          | n/a           | auto-summary | n/a                 | yes          |
 
 ---
 
-## 🧭 Evolution Strategy
+## 🚫 Common Pitfalls (From Our Experience)
 
-* Use versioned playbook per project phase
-* Embed quality gates via CI for test, coverage, lint, and semantic commit enforcement
-* Run weekly dashboard reporting from `metrics_*.json`
-* Revisit documentation-to-performance ratio quarterly
-* Expand prompt templates only when reuse proves ROI
+**Context**: These issues appeared in our specific workflow - may not apply to all AI-assisted development.
+
+* **Single-Shot Pipeline Prompts** → hallucinated modules & circular imports
+* **Skipping Drift Checks** → silent prompt-file divergence
+* **Test-After-The-Fact** → flaky or missing coverage
+* **Overloaded Context Windows** → reduced AI precision
+* **Relying on AI for Async/Threading** → deadlocks & brittle code—hand-code or heavily constrain
+* **Documentation-As-Obstacle** → time sink with no velocity gain
+* **AI Writing Logging/Config Before Logic** → wasted effort
 
 ---
 
-## Final Word: Use With Caution
+## 🧭 Evolution Strategy (Experimental)
 
-**This playbook represents lessons from one failed project.** While the retrospective analysis is honest, the prescriptive guidance should be treated as **hypotheses to test**, not proven methodology.
+**Context**: These monitoring approaches worked in our case but require validation across different project types.
 
-### What We Got Right
-- **Honest failure analysis** beats hand-waving retrospectives
-- **Working prototype first** aligns with proven lean/agile practices  
-- **Measuring what matters** over process compliance
-- **AI requires human iteration** (supported by current research)
+* **Weekly Metric Review** via dashboard + CI comment
+* **Quarterly Prompt Audit** rotate temperature, compare deltas
+* **Documentation Budget** Auto-warn when MVD grows >4 KB
+* **Agent Specialization** Introduce separate model for schema design if processor accuracy <90%
+* **Drift Monitoring** Embed quality gates via CI for test, coverage, lint, and semantic commit enforcement
 
-### What Needs Validation
-- Whether these patterns work in other domains
-- If the problem was methodology vs. domain understanding
-- How these approaches compare to established software development practices
-- Whether the complexity was premature or necessary
+---
 
-### Recommended Next Steps
-1. **Test on multiple projects** before claiming universal validity
-2. **Compare against control groups** using standard development approaches
-3. **Focus on user outcomes** over internal process optimization
-4. **Gather evidence** before expanding this into a broader methodology
+## Final Word: Promising Experimental Patterns
 
-Use this playbook as **one data point** in your own experimentation—not as definitive guidance.
+**This playbook represents patterns from limited project experience.** The operational techniques (prompt versioning, fallbacks, staged workflows) showed promise in our case, but the prescriptive guidance should be treated as **hypotheses to test**, not proven methodology.
+
+### Practical Elements That Seemed Effective
+- **Prompt versioning & provenance tracking** for debugging AI generation issues
+- **Fallback patterns** for maintaining system stability when AI logic fails
+- **Staged workflow with clear artifacts** for managing complex AI-assisted development
+- **Working prototype first** (aligns with proven lean/agile practices)
+- **AI requires significant human iteration** (supported by current research)
+
+### Critical Limitations & Needs Validation
+- **Single project basis (N=1)** - patterns may not generalize
+- **Specific context** (health data, single developer, rapid timeline)
+- **Operational overhead** - tracking may be excessive for simpler projects
+- **Alternative explanations** - our failure may have been domain knowledge, not methodology
+
+### Recommended Approach
+1. **Try the operational patterns** (versioning, fallbacks, staged workflow) in your context
+2. **Measure outcomes** vs. your current AI-assisted development approach
+3. **Adapt based on your specific constraints** (team size, project complexity, timeline)
+4. **Contribute back findings** to validate or refute these patterns across different contexts
+
+**Use as experimental toolkit—test what works for your situation, discard what doesn't.**
+
+Backend-heavy AI-assisted development can work, but requires careful human oversight at every integration point. These patterns are guardrails for experimentation, not universal solutions.
