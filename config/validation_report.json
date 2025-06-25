@@ -1,0 +1,37 @@
+{
+  "structure": {
+    "is_valid": true,
+    "error_count": 0,
+    "warning_count": 0,
+    "errors": [],
+    "warnings": []
+  },
+  "geographic": {
+    "is_valid": true,
+    "error_count": 0,
+    "warning_count": 1,
+    "errors": [],
+    "warnings": [
+      "Found 334 invalid FIPS codes"
+    ]
+  },
+  "indicators": {
+    "is_valid": true,
+    "error_count": 0,
+    "warning_count": 1,
+    "errors": [],
+    "warnings": [
+      "v170: High missing rate 100.00%"
+    ]
+  },
+  "completeness": {
+    "is_valid": true,
+    "error_count": 0,
+    "warning_count": 2,
+    "errors": [],
+    "warnings": [
+      "Low overall completeness: 49.52%",
+      "Columns with <10% completeness: 252 columns"
+    ]
+  }
+}
