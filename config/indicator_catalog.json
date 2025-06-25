@@ -1,0 +1,1521 @@
+{
+  "indicators": [
+    {
+      "id": "v001",
+      "columns": {
+        "rawvalue": "v001_rawvalue",
+        "numerator": "v001_numerator",
+        "denominator": "v001_denominator",
+        "cilow": "v001_cilow",
+        "cihigh": "v001_cihigh",
+        "flag": "v001_flag",
+        "race_aian": "v001_race_aian",
+        "race_aian_cilow": "v001_race_aian_cilow",
+        "race_aian_cihigh": "v001_race_aian_cihigh",
+        "race_aian_flag": "v001_race_aian_flag",
+        "race_asian": "v001_race_asian",
+        "race_asian_cilow": "v001_race_asian_cilow",
+        "race_asian_cihigh": "v001_race_asian_cihigh",
+        "race_asian_flag": "v001_race_asian_flag",
+        "race_black": "v001_race_black",
+        "race_black_cilow": "v001_race_black_cilow",
+        "race_black_cihigh": "v001_race_black_cihigh",
+        "race_black_flag": "v001_race_black_flag",
+        "race_hispanic": "v001_race_hispanic",
+        "race_hispanic_cilow": "v001_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v001_race_hispanic_cihigh",
+        "race_hispanic_flag": "v001_race_hispanic_flag",
+        "race_white": "v001_race_white",
+        "race_white_cilow": "v001_race_white_cilow",
+        "race_white_cihigh": "v001_race_white_cihigh",
+        "race_white_flag": "v001_race_white_flag",
+        "race_nhopi": "v001_race_nhopi",
+        "race_nhopi_cilow": "v001_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v001_race_nhopi_cihigh",
+        "race_nhopi_flag": "v001_race_nhopi_flag",
+        "race_tom_flag": "v001_race_tom_flag"
+      },
+      "description": "Premature Death raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v036",
+      "columns": {
+        "rawvalue": "v036_rawvalue",
+        "numerator": "v036_numerator",
+        "denominator": "v036_denominator",
+        "cilow": "v036_cilow",
+        "cihigh": "v036_cihigh"
+      },
+      "description": "Poor Physical Health Days raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v037",
+      "columns": {
+        "rawvalue": "v037_rawvalue",
+        "numerator": "v037_numerator",
+        "denominator": "v037_denominator",
+        "cilow": "v037_cilow",
+        "cihigh": "v037_cihigh",
+        "flag": "v037_flag",
+        "race_aian": "v037_race_aian",
+        "race_aian_cilow": "v037_race_aian_cilow",
+        "race_aian_cihigh": "v037_race_aian_cihigh",
+        "race_asian": "v037_race_asian",
+        "race_asian_cilow": "v037_race_asian_cilow",
+        "race_asian_cihigh": "v037_race_asian_cihigh",
+        "race_black": "v037_race_black",
+        "race_black_cilow": "v037_race_black_cilow",
+        "race_black_cihigh": "v037_race_black_cihigh",
+        "race_hispanic": "v037_race_hispanic",
+        "race_hispanic_cilow": "v037_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v037_race_hispanic_cihigh",
+        "race_white": "v037_race_white",
+        "race_white_cilow": "v037_race_white_cilow",
+        "race_white_cihigh": "v037_race_white_cihigh",
+        "race_nhopi": "v037_race_nhopi",
+        "race_nhopi_cilow": "v037_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v037_race_nhopi_cihigh",
+        "race_tom": "v037_race_tom",
+        "race_tom_cilow": "v037_race_tom_cilow",
+        "race_tom_cihigh": "v037_race_tom_cihigh"
+      },
+      "description": "Low Birth Weight raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v042",
+      "columns": {
+        "rawvalue": "v042_rawvalue",
+        "numerator": "v042_numerator",
+        "denominator": "v042_denominator",
+        "cilow": "v042_cilow",
+        "cihigh": "v042_cihigh"
+      },
+      "description": "Poor Mental Health Days raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v002",
+      "columns": {
+        "rawvalue": "v002_rawvalue",
+        "numerator": "v002_numerator",
+        "denominator": "v002_denominator",
+        "cilow": "v002_cilow",
+        "cihigh": "v002_cihigh"
+      },
+      "description": "Poor or Fair Health raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v155",
+      "columns": {
+        "rawvalue": "v155_rawvalue",
+        "numerator": "v155_numerator",
+        "denominator": "v155_denominator",
+        "cilow": "v155_cilow",
+        "cihigh": "v155_cihigh",
+        "race_aian": "v155_race_aian",
+        "race_asian": "v155_race_asian",
+        "race_black": "v155_race_black",
+        "race_hispanic": "v155_race_hispanic",
+        "race_white": "v155_race_white"
+      },
+      "description": "Flu Vaccinations raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v132",
+      "columns": {
+        "rawvalue": "v132_rawvalue",
+        "numerator": "v132_numerator",
+        "denominator": "v132_denominator",
+        "cilow": "v132_cilow",
+        "cihigh": "v132_cihigh"
+      },
+      "description": "Access to Exercise Opportunities raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v133",
+      "columns": {
+        "rawvalue": "v133_rawvalue",
+        "numerator": "v133_numerator",
+        "denominator": "v133_denominator",
+        "cilow": "v133_cilow",
+        "cihigh": "v133_cihigh"
+      },
+      "description": "Food Environment Index raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v004",
+      "columns": {
+        "rawvalue": "v004_rawvalue",
+        "numerator": "v004_numerator",
+        "denominator": "v004_denominator",
+        "cilow": "v004_cilow",
+        "cihigh": "v004_cihigh",
+        "other_data_1": "v004_other_data_1"
+      },
+      "description": "Primary Care Physicians raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v062",
+      "columns": {
+        "rawvalue": "v062_rawvalue",
+        "numerator": "v062_numerator",
+        "denominator": "v062_denominator",
+        "cilow": "v062_cilow",
+        "cihigh": "v062_cihigh",
+        "other_data_1": "v062_other_data_1"
+      },
+      "description": "Mental Health Providers raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v088",
+      "columns": {
+        "rawvalue": "v088_rawvalue",
+        "numerator": "v088_numerator",
+        "denominator": "v088_denominator",
+        "cilow": "v088_cilow",
+        "cihigh": "v088_cihigh",
+        "other_data_1": "v088_other_data_1"
+      },
+      "description": "Dentists raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v005",
+      "columns": {
+        "rawvalue": "v005_rawvalue",
+        "numerator": "v005_numerator",
+        "denominator": "v005_denominator",
+        "cilow": "v005_cilow",
+        "cihigh": "v005_cihigh",
+        "race_aian": "v005_race_aian",
+        "race_asian": "v005_race_asian",
+        "race_black": "v005_race_black",
+        "race_hispanic": "v005_race_hispanic",
+        "race_white": "v005_race_white"
+      },
+      "description": "Preventable Hospital Stays raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v050",
+      "columns": {
+        "rawvalue": "v050_rawvalue",
+        "numerator": "v050_numerator",
+        "denominator": "v050_denominator",
+        "cilow": "v050_cilow",
+        "cihigh": "v050_cihigh",
+        "race_aian": "v050_race_aian",
+        "race_asian": "v050_race_asian",
+        "race_black": "v050_race_black",
+        "race_hispanic": "v050_race_hispanic",
+        "race_white": "v050_race_white"
+      },
+      "description": "Mammography Screening raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v085",
+      "columns": {
+        "rawvalue": "v085_rawvalue",
+        "numerator": "v085_numerator",
+        "denominator": "v085_denominator",
+        "cilow": "v085_cilow",
+        "cihigh": "v085_cihigh"
+      },
+      "description": "Uninsured raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v136",
+      "columns": {
+        "rawvalue": "v136_rawvalue",
+        "numerator": "v136_numerator",
+        "denominator": "v136_denominator",
+        "cilow": "v136_cilow",
+        "cihigh": "v136_cihigh",
+        "other_data_1": "v136_other_data_1",
+        "other_data_1_cilow": "v136_other_data_1_cilow",
+        "other_data_1_cihigh": "v136_other_data_1_cihigh",
+        "other_data_2": "v136_other_data_2",
+        "other_data_2_cilow": "v136_other_data_2_cilow",
+        "other_data_2_cihigh": "v136_other_data_2_cihigh",
+        "other_data_3": "v136_other_data_3",
+        "other_data_3_cilow": "v136_other_data_3_cilow",
+        "other_data_3_cihigh": "v136_other_data_3_cihigh"
+      },
+      "description": "Severe Housing Problems raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v067",
+      "columns": {
+        "rawvalue": "v067_rawvalue",
+        "numerator": "v067_numerator",
+        "denominator": "v067_denominator",
+        "cilow": "v067_cilow",
+        "cihigh": "v067_cihigh",
+        "race_aian": "v067_race_aian",
+        "race_aian_cilow": "v067_race_aian_cilow",
+        "race_aian_cihigh": "v067_race_aian_cihigh",
+        "race_asian": "v067_race_asian",
+        "race_asian_cilow": "v067_race_asian_cilow",
+        "race_asian_cihigh": "v067_race_asian_cihigh",
+        "race_black": "v067_race_black",
+        "race_black_cilow": "v067_race_black_cilow",
+        "race_black_cihigh": "v067_race_black_cihigh",
+        "race_hispanic": "v067_race_hispanic",
+        "race_hispanic_cilow": "v067_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v067_race_hispanic_cihigh",
+        "race_white": "v067_race_white",
+        "race_white_cilow": "v067_race_white_cilow",
+        "race_white_cihigh": "v067_race_white_cihigh"
+      },
+      "description": "Driving Alone to Work raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v137",
+      "columns": {
+        "rawvalue": "v137_rawvalue",
+        "numerator": "v137_numerator",
+        "denominator": "v137_denominator",
+        "cilow": "v137_cilow",
+        "cihigh": "v137_cihigh"
+      },
+      "description": "Long Commute - Driving Alone raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v125",
+      "columns": {
+        "rawvalue": "v125_rawvalue",
+        "numerator": "v125_numerator",
+        "denominator": "v125_denominator",
+        "cilow": "v125_cilow",
+        "cihigh": "v125_cihigh"
+      },
+      "description": "Air Pollution: Particulate Matter raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v124",
+      "columns": {
+        "rawvalue": "v124_rawvalue",
+        "numerator": "v124_numerator",
+        "denominator": "v124_denominator",
+        "cilow": "v124_cilow",
+        "cihigh": "v124_cihigh"
+      },
+      "description": "Drinking Water Violations raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v166",
+      "columns": {
+        "rawvalue": "v166_rawvalue",
+        "numerator": "v166_numerator",
+        "denominator": "v166_denominator",
+        "cilow": "v166_cilow",
+        "cihigh": "v166_cihigh"
+      },
+      "description": "Broadband Access raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v181",
+      "columns": {
+        "rawvalue": "v181_rawvalue",
+        "numerator": "v181_numerator",
+        "denominator": "v181_denominator",
+        "cilow": "v181_cilow",
+        "cihigh": "v181_cihigh"
+      },
+      "description": "Library Access raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v069",
+      "columns": {
+        "rawvalue": "v069_rawvalue",
+        "numerator": "v069_numerator",
+        "denominator": "v069_denominator",
+        "cilow": "v069_cilow",
+        "cihigh": "v069_cihigh"
+      },
+      "description": "Some College raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v168",
+      "columns": {
+        "rawvalue": "v168_rawvalue",
+        "numerator": "v168_numerator",
+        "denominator": "v168_denominator",
+        "cilow": "v168_cilow",
+        "cihigh": "v168_cihigh"
+      },
+      "description": "High School Completion raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v023",
+      "columns": {
+        "rawvalue": "v023_rawvalue",
+        "numerator": "v023_numerator",
+        "denominator": "v023_denominator",
+        "cilow": "v023_cilow",
+        "cihigh": "v023_cihigh"
+      },
+      "description": "Unemployment raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v044",
+      "columns": {
+        "rawvalue": "v044_rawvalue",
+        "numerator": "v044_numerator",
+        "denominator": "v044_denominator",
+        "cilow": "v044_cilow",
+        "cihigh": "v044_cihigh"
+      },
+      "description": "Income Inequality raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v024",
+      "columns": {
+        "rawvalue": "v024_rawvalue",
+        "numerator": "v024_numerator",
+        "denominator": "v024_denominator",
+        "cilow": "v024_cilow",
+        "cihigh": "v024_cihigh",
+        "race_aian": "v024_race_aian",
+        "race_aian_cilow": "v024_race_aian_cilow",
+        "race_aian_cihigh": "v024_race_aian_cihigh",
+        "race_asian": "v024_race_asian",
+        "race_asian_cilow": "v024_race_asian_cilow",
+        "race_asian_cihigh": "v024_race_asian_cihigh",
+        "race_black": "v024_race_black",
+        "race_black_cilow": "v024_race_black_cilow",
+        "race_black_cihigh": "v024_race_black_cihigh",
+        "race_hispanic": "v024_race_hispanic",
+        "race_hispanic_cilow": "v024_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v024_race_hispanic_cihigh",
+        "race_white": "v024_race_white",
+        "race_white_cilow": "v024_race_white_cilow",
+        "race_white_cihigh": "v024_race_white_cihigh"
+      },
+      "description": "Children in Poverty raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v135",
+      "columns": {
+        "rawvalue": "v135_rawvalue",
+        "numerator": "v135_numerator",
+        "denominator": "v135_denominator",
+        "cilow": "v135_cilow",
+        "cihigh": "v135_cihigh",
+        "race_aian": "v135_race_aian",
+        "race_aian_cilow": "v135_race_aian_cilow",
+        "race_aian_cihigh": "v135_race_aian_cihigh",
+        "race_asian": "v135_race_asian",
+        "race_asian_cilow": "v135_race_asian_cilow",
+        "race_asian_cihigh": "v135_race_asian_cihigh",
+        "race_black": "v135_race_black",
+        "race_black_cilow": "v135_race_black_cilow",
+        "race_black_cihigh": "v135_race_black_cihigh",
+        "race_hispanic": "v135_race_hispanic",
+        "race_hispanic_cilow": "v135_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v135_race_hispanic_cihigh",
+        "race_white": "v135_race_white",
+        "race_white_cilow": "v135_race_white_cilow",
+        "race_white_cihigh": "v135_race_white_cihigh",
+        "race_nhopi": "v135_race_nhopi",
+        "race_nhopi_cilow": "v135_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v135_race_nhopi_cihigh"
+      },
+      "description": "Injury Deaths raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v140",
+      "columns": {
+        "rawvalue": "v140_rawvalue",
+        "numerator": "v140_numerator",
+        "denominator": "v140_denominator",
+        "cilow": "v140_cilow",
+        "cihigh": "v140_cihigh"
+      },
+      "description": "Social Associations raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v171",
+      "columns": {
+        "rawvalue": "v171_rawvalue",
+        "numerator": "v171_numerator",
+        "denominator": "v171_denominator",
+        "cilow": "v171_cilow",
+        "cihigh": "v171_cihigh"
+      },
+      "description": "Child Care Cost Burden raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v147",
+      "columns": {
+        "rawvalue": "v147_rawvalue",
+        "numerator": "v147_numerator",
+        "denominator": "v147_denominator",
+        "cilow": "v147_cilow",
+        "cihigh": "v147_cihigh",
+        "race_aian": "v147_race_aian",
+        "race_aian_cilow": "v147_race_aian_cilow",
+        "race_aian_cihigh": "v147_race_aian_cihigh",
+        "race_asian": "v147_race_asian",
+        "race_asian_cilow": "v147_race_asian_cilow",
+        "race_asian_cihigh": "v147_race_asian_cihigh",
+        "race_black": "v147_race_black",
+        "race_black_cilow": "v147_race_black_cilow",
+        "race_black_cihigh": "v147_race_black_cihigh",
+        "race_hispanic": "v147_race_hispanic",
+        "race_hispanic_cilow": "v147_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v147_race_hispanic_cihigh",
+        "race_white": "v147_race_white",
+        "race_white_cilow": "v147_race_white_cilow",
+        "race_white_cihigh": "v147_race_white_cihigh",
+        "race_nhopi": "v147_race_nhopi",
+        "race_nhopi_cilow": "v147_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v147_race_nhopi_cihigh"
+      },
+      "description": "Life Expectancy raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v127",
+      "columns": {
+        "rawvalue": "v127_rawvalue",
+        "numerator": "v127_numerator",
+        "denominator": "v127_denominator",
+        "cilow": "v127_cilow",
+        "cihigh": "v127_cihigh",
+        "race_aian": "v127_race_aian",
+        "race_aian_cilow": "v127_race_aian_cilow",
+        "race_aian_cihigh": "v127_race_aian_cihigh",
+        "race_asian": "v127_race_asian",
+        "race_asian_cilow": "v127_race_asian_cilow",
+        "race_asian_cihigh": "v127_race_asian_cihigh",
+        "race_black": "v127_race_black",
+        "race_black_cilow": "v127_race_black_cilow",
+        "race_black_cihigh": "v127_race_black_cihigh",
+        "race_hispanic": "v127_race_hispanic",
+        "race_hispanic_cilow": "v127_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v127_race_hispanic_cihigh",
+        "race_white": "v127_race_white",
+        "race_white_cilow": "v127_race_white_cilow",
+        "race_white_cihigh": "v127_race_white_cihigh",
+        "race_nhopi": "v127_race_nhopi",
+        "race_nhopi_cilow": "v127_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v127_race_nhopi_cihigh"
+      },
+      "description": "Premature Age-Adjusted Mortality raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v128",
+      "columns": {
+        "rawvalue": "v128_rawvalue",
+        "numerator": "v128_numerator",
+        "denominator": "v128_denominator",
+        "cilow": "v128_cilow",
+        "cihigh": "v128_cihigh",
+        "race_aian": "v128_race_aian",
+        "race_aian_cilow": "v128_race_aian_cilow",
+        "race_aian_cihigh": "v128_race_aian_cihigh",
+        "race_asian": "v128_race_asian",
+        "race_asian_cilow": "v128_race_asian_cilow",
+        "race_asian_cihigh": "v128_race_asian_cihigh",
+        "race_black": "v128_race_black",
+        "race_black_cilow": "v128_race_black_cilow",
+        "race_black_cihigh": "v128_race_black_cihigh",
+        "race_hispanic": "v128_race_hispanic",
+        "race_hispanic_cilow": "v128_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v128_race_hispanic_cihigh",
+        "race_white": "v128_race_white",
+        "race_white_cilow": "v128_race_white_cilow",
+        "race_white_cihigh": "v128_race_white_cihigh",
+        "race_nhopi": "v128_race_nhopi",
+        "race_nhopi_cilow": "v128_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v128_race_nhopi_cihigh"
+      },
+      "description": "Child Mortality raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v129",
+      "columns": {
+        "rawvalue": "v129_rawvalue",
+        "numerator": "v129_numerator",
+        "denominator": "v129_denominator",
+        "cilow": "v129_cilow",
+        "cihigh": "v129_cihigh",
+        "race_aian": "v129_race_aian",
+        "race_aian_cilow": "v129_race_aian_cilow",
+        "race_aian_cihigh": "v129_race_aian_cihigh",
+        "race_asian": "v129_race_asian",
+        "race_asian_cilow": "v129_race_asian_cilow",
+        "race_asian_cihigh": "v129_race_asian_cihigh",
+        "race_black": "v129_race_black",
+        "race_black_cilow": "v129_race_black_cilow",
+        "race_black_cihigh": "v129_race_black_cihigh",
+        "race_hispanic": "v129_race_hispanic",
+        "race_hispanic_cilow": "v129_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v129_race_hispanic_cihigh",
+        "race_white": "v129_race_white",
+        "race_white_cilow": "v129_race_white_cilow",
+        "race_white_cihigh": "v129_race_white_cihigh",
+        "race_nhopi": "v129_race_nhopi",
+        "race_nhopi_cilow": "v129_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v129_race_nhopi_cihigh",
+        "race_tom": "v129_race_tom",
+        "race_tom_cilow": "v129_race_tom_cilow",
+        "race_tom_cihigh": "v129_race_tom_cihigh"
+      },
+      "description": "Infant Mortality raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v144",
+      "columns": {
+        "rawvalue": "v144_rawvalue",
+        "numerator": "v144_numerator",
+        "denominator": "v144_denominator",
+        "cilow": "v144_cilow",
+        "cihigh": "v144_cihigh"
+      },
+      "description": "Frequent Physical Distress raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v060",
+      "columns": {
+        "rawvalue": "v060_rawvalue",
+        "numerator": "v060_numerator",
+        "denominator": "v060_denominator",
+        "cilow": "v060_cilow",
+        "cihigh": "v060_cihigh"
+      },
+      "description": "Diabetes Prevalence raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v061",
+      "columns": {
+        "rawvalue": "v061_rawvalue",
+        "numerator": "v061_numerator",
+        "denominator": "v061_denominator",
+        "cilow": "v061_cilow",
+        "cihigh": "v061_cihigh"
+      },
+      "description": "HIV Prevalence raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v011",
+      "columns": {
+        "rawvalue": "v011_rawvalue",
+        "numerator": "v011_numerator",
+        "denominator": "v011_denominator",
+        "cilow": "v011_cilow",
+        "cihigh": "v011_cihigh"
+      },
+      "description": "Adult Obesity raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v145",
+      "columns": {
+        "rawvalue": "v145_rawvalue",
+        "numerator": "v145_numerator",
+        "denominator": "v145_denominator",
+        "cilow": "v145_cilow",
+        "cihigh": "v145_cihigh"
+      },
+      "description": "Frequent Mental Distress raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v161",
+      "columns": {
+        "rawvalue": "v161_rawvalue",
+        "numerator": "v161_numerator",
+        "denominator": "v161_denominator",
+        "cilow": "v161_cilow",
+        "cihigh": "v161_cihigh",
+        "other_data_1": "v161_other_data_1",
+        "race_aian": "v161_race_aian",
+        "race_aian_cilow": "v161_race_aian_cilow",
+        "race_aian_cihigh": "v161_race_aian_cihigh",
+        "race_asian": "v161_race_asian",
+        "race_asian_cilow": "v161_race_asian_cilow",
+        "race_asian_cihigh": "v161_race_asian_cihigh",
+        "race_black": "v161_race_black",
+        "race_black_cilow": "v161_race_black_cilow",
+        "race_black_cihigh": "v161_race_black_cihigh",
+        "race_hispanic": "v161_race_hispanic",
+        "race_hispanic_cilow": "v161_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v161_race_hispanic_cihigh",
+        "race_white": "v161_race_white",
+        "race_white_cilow": "v161_race_white_cilow",
+        "race_white_cihigh": "v161_race_white_cihigh",
+        "race_nhopi": "v161_race_nhopi",
+        "race_nhopi_cilow": "v161_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v161_race_nhopi_cihigh"
+      },
+      "description": "Suicides raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v183",
+      "columns": {
+        "rawvalue": "v183_rawvalue",
+        "numerator": "v183_numerator",
+        "denominator": "v183_denominator",
+        "cilow": "v183_cilow",
+        "cihigh": "v183_cihigh"
+      },
+      "description": "Feelings of Loneliness raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v083",
+      "columns": {
+        "rawvalue": "v083_rawvalue",
+        "numerator": "v083_numerator",
+        "denominator": "v083_denominator",
+        "cilow": "v083_cilow",
+        "cihigh": "v083_cihigh"
+      },
+      "description": "Limited Access to Healthy Foods raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v139",
+      "columns": {
+        "rawvalue": "v139_rawvalue",
+        "numerator": "v139_numerator",
+        "denominator": "v139_denominator",
+        "cilow": "v139_cilow",
+        "cihigh": "v139_cihigh"
+      },
+      "description": "Food Insecurity raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v143",
+      "columns": {
+        "rawvalue": "v143_rawvalue",
+        "numerator": "v143_numerator",
+        "denominator": "v143_denominator",
+        "cilow": "v143_cilow",
+        "cihigh": "v143_cihigh"
+      },
+      "description": "Insufficient Sleep raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v014",
+      "columns": {
+        "rawvalue": "v014_rawvalue",
+        "numerator": "v014_numerator",
+        "denominator": "v014_denominator",
+        "cilow": "v014_cilow",
+        "cihigh": "v014_cihigh",
+        "race_aian": "v014_race_aian",
+        "race_aian_cilow": "v014_race_aian_cilow",
+        "race_aian_cihigh": "v014_race_aian_cihigh",
+        "race_asian": "v014_race_asian",
+        "race_asian_cilow": "v014_race_asian_cilow",
+        "race_asian_cihigh": "v014_race_asian_cihigh",
+        "race_black": "v014_race_black",
+        "race_black_cilow": "v014_race_black_cilow",
+        "race_black_cihigh": "v014_race_black_cihigh",
+        "race_hispanic": "v014_race_hispanic",
+        "race_hispanic_cilow": "v014_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v014_race_hispanic_cihigh",
+        "race_white": "v014_race_white",
+        "race_white_cilow": "v014_race_white_cilow",
+        "race_white_cihigh": "v014_race_white_cihigh",
+        "race_nhopi": "v014_race_nhopi",
+        "race_nhopi_cilow": "v014_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v014_race_nhopi_cihigh",
+        "race_tom": "v014_race_tom",
+        "race_tom_cilow": "v014_race_tom_cilow",
+        "race_tom_cihigh": "v014_race_tom_cihigh"
+      },
+      "description": "Teen Births raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v045",
+      "columns": {
+        "rawvalue": "v045_rawvalue",
+        "numerator": "v045_numerator",
+        "denominator": "v045_denominator",
+        "cilow": "v045_cilow",
+        "cihigh": "v045_cihigh"
+      },
+      "description": "Sexually Transmitted Infections raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v049",
+      "columns": {
+        "rawvalue": "v049_rawvalue",
+        "numerator": "v049_numerator",
+        "denominator": "v049_denominator",
+        "cilow": "v049_cilow",
+        "cihigh": "v049_cihigh"
+      },
+      "description": "Excessive Drinking raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v134",
+      "columns": {
+        "rawvalue": "v134_rawvalue",
+        "numerator": "v134_numerator",
+        "denominator": "v134_denominator",
+        "cilow": "v134_cilow",
+        "cihigh": "v134_cihigh"
+      },
+      "description": "Alcohol-Impaired Driving Deaths raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v138",
+      "columns": {
+        "rawvalue": "v138_rawvalue",
+        "numerator": "v138_numerator",
+        "denominator": "v138_denominator",
+        "cilow": "v138_cilow",
+        "cihigh": "v138_cihigh",
+        "race_aian": "v138_race_aian",
+        "race_aian_cilow": "v138_race_aian_cilow",
+        "race_aian_cihigh": "v138_race_aian_cihigh",
+        "race_asian": "v138_race_asian",
+        "race_asian_cilow": "v138_race_asian_cilow",
+        "race_asian_cihigh": "v138_race_asian_cihigh",
+        "race_black": "v138_race_black",
+        "race_black_cilow": "v138_race_black_cilow",
+        "race_black_cihigh": "v138_race_black_cihigh",
+        "race_hispanic": "v138_race_hispanic",
+        "race_hispanic_cilow": "v138_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v138_race_hispanic_cihigh",
+        "race_white": "v138_race_white",
+        "race_white_cilow": "v138_race_white_cilow",
+        "race_white_cihigh": "v138_race_white_cihigh",
+        "race_nhopi": "v138_race_nhopi",
+        "race_nhopi_cilow": "v138_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v138_race_nhopi_cihigh"
+      },
+      "description": "Drug Overdose Deaths raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v009",
+      "columns": {
+        "rawvalue": "v009_rawvalue",
+        "numerator": "v009_numerator",
+        "denominator": "v009_denominator",
+        "cilow": "v009_cilow",
+        "cihigh": "v009_cihigh"
+      },
+      "description": "Adult Smoking raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v070",
+      "columns": {
+        "rawvalue": "v070_rawvalue",
+        "numerator": "v070_numerator",
+        "denominator": "v070_denominator",
+        "cilow": "v070_cilow",
+        "cihigh": "v070_cihigh"
+      },
+      "description": "Physical Inactivity raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v003",
+      "columns": {
+        "rawvalue": "v003_rawvalue",
+        "numerator": "v003_numerator",
+        "denominator": "v003_denominator",
+        "cilow": "v003_cilow",
+        "cihigh": "v003_cihigh"
+      },
+      "description": "Uninsured Adults raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v122",
+      "columns": {
+        "rawvalue": "v122_rawvalue",
+        "numerator": "v122_numerator",
+        "denominator": "v122_denominator",
+        "cilow": "v122_cilow",
+        "cihigh": "v122_cihigh"
+      },
+      "description": "Uninsured Children raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v131",
+      "columns": {
+        "rawvalue": "v131_rawvalue",
+        "numerator": "v131_numerator",
+        "denominator": "v131_denominator",
+        "cilow": "v131_cilow",
+        "cihigh": "v131_cihigh",
+        "other_data_1": "v131_other_data_1"
+      },
+      "description": "Other Primary Care Providers raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v156",
+      "columns": {
+        "rawvalue": "v156_rawvalue",
+        "numerator": "v156_numerator",
+        "denominator": "v156_denominator",
+        "cilow": "v156_cilow",
+        "cihigh": "v156_cihigh"
+      },
+      "description": "Traffic Volume raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v153",
+      "columns": {
+        "rawvalue": "v153_rawvalue",
+        "numerator": "v153_numerator",
+        "denominator": "v153_denominator",
+        "cilow": "v153_cilow",
+        "cihigh": "v153_cihigh"
+      },
+      "description": "Homeownership raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v154",
+      "columns": {
+        "rawvalue": "v154_rawvalue",
+        "numerator": "v154_numerator",
+        "denominator": "v154_denominator",
+        "cilow": "v154_cilow",
+        "cihigh": "v154_cihigh"
+      },
+      "description": "Severe Housing Cost Burden raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v179",
+      "columns": {
+        "rawvalue": "v179_rawvalue",
+        "numerator": "v179_numerator",
+        "denominator": "v179_denominator",
+        "cilow": "v179_cilow",
+        "cihigh": "v179_cihigh"
+      },
+      "description": "Access to Parks raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v182",
+      "columns": {
+        "rawvalue": "v182_rawvalue",
+        "numerator": "v182_numerator",
+        "denominator": "v182_denominator",
+        "cilow": "v182_cilow",
+        "cihigh": "v182_cihigh",
+        "other_data_1": "v182_other_data_1",
+        "other_data_2": "v182_other_data_2",
+        "other_data_3": "v182_other_data_3"
+      },
+      "description": "Adverse Climate Events raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v178",
+      "columns": {
+        "rawvalue": "v178_rawvalue",
+        "numerator": "v178_numerator",
+        "denominator": "v178_denominator",
+        "cilow": "v178_cilow",
+        "cihigh": "v178_cihigh"
+      },
+      "description": "Census Participation raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v177",
+      "columns": {
+        "rawvalue": "v177_rawvalue",
+        "numerator": "v177_numerator",
+        "denominator": "v177_denominator",
+        "cilow": "v177_cilow",
+        "cihigh": "v177_cihigh"
+      },
+      "description": "Voter Turnout raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v021",
+      "columns": {
+        "rawvalue": "v021_rawvalue",
+        "numerator": "v021_numerator",
+        "denominator": "v021_denominator",
+        "cilow": "v021_cilow",
+        "cihigh": "v021_cihigh"
+      },
+      "description": "High School Graduation raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v159",
+      "columns": {
+        "rawvalue": "v159_rawvalue",
+        "numerator": "v159_numerator",
+        "denominator": "v159_denominator",
+        "cilow": "v159_cilow",
+        "cihigh": "v159_cihigh",
+        "race_aian": "v159_race_aian",
+        "race_asian": "v159_race_asian",
+        "race_black": "v159_race_black",
+        "race_hispanic": "v159_race_hispanic",
+        "race_white": "v159_race_white"
+      },
+      "description": "Reading Scores raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v160",
+      "columns": {
+        "rawvalue": "v160_rawvalue",
+        "numerator": "v160_numerator",
+        "denominator": "v160_denominator",
+        "cilow": "v160_cilow",
+        "cihigh": "v160_cihigh",
+        "race_aian": "v160_race_aian",
+        "race_asian": "v160_race_asian",
+        "race_black": "v160_race_black",
+        "race_hispanic": "v160_race_hispanic",
+        "race_white": "v160_race_white"
+      },
+      "description": "Math Scores raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v167",
+      "columns": {
+        "rawvalue": "v167_rawvalue",
+        "numerator": "v167_numerator",
+        "denominator": "v167_denominator",
+        "cilow": "v167_cilow",
+        "cihigh": "v167_cihigh"
+      },
+      "description": "School Segregation raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v169",
+      "columns": {
+        "rawvalue": "v169_rawvalue",
+        "numerator": "v169_numerator",
+        "denominator": "v169_denominator",
+        "cilow": "v169_cilow",
+        "cihigh": "v169_cihigh"
+      },
+      "description": "School Funding Adequacy raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v065",
+      "columns": {
+        "rawvalue": "v065_rawvalue",
+        "numerator": "v065_numerator",
+        "denominator": "v065_denominator",
+        "cilow": "v065_cilow",
+        "cihigh": "v065_cihigh"
+      },
+      "description": "Children Eligible for Free or Reduced Price Lunch raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v151",
+      "columns": {
+        "rawvalue": "v151_rawvalue",
+        "numerator": "v151_numerator",
+        "denominator": "v151_denominator",
+        "cilow": "v151_cilow",
+        "cihigh": "v151_cihigh"
+      },
+      "description": "Gender Pay Gap raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v063",
+      "columns": {
+        "rawvalue": "v063_rawvalue",
+        "numerator": "v063_numerator",
+        "denominator": "v063_denominator",
+        "cilow": "v063_cilow",
+        "cihigh": "v063_cihigh",
+        "race_aian": "v063_race_aian",
+        "race_aian_cilow": "v063_race_aian_cilow",
+        "race_aian_cihigh": "v063_race_aian_cihigh",
+        "race_asian": "v063_race_asian",
+        "race_asian_cilow": "v063_race_asian_cilow",
+        "race_asian_cihigh": "v063_race_asian_cihigh",
+        "race_black": "v063_race_black",
+        "race_black_cilow": "v063_race_black_cilow",
+        "race_black_cihigh": "v063_race_black_cihigh",
+        "race_hispanic": "v063_race_hispanic",
+        "race_hispanic_cilow": "v063_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v063_race_hispanic_cihigh",
+        "race_white": "v063_race_white",
+        "race_white_cilow": "v063_race_white_cilow",
+        "race_white_cihigh": "v063_race_white_cihigh"
+      },
+      "description": "Median Household Income raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v170",
+      "columns": {
+        "rawvalue": "v170_rawvalue",
+        "numerator": "v170_numerator",
+        "denominator": "v170_denominator",
+        "cilow": "v170_cilow",
+        "cihigh": "v170_cihigh"
+      },
+      "description": "Living Wage raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v172",
+      "columns": {
+        "rawvalue": "v172_rawvalue",
+        "numerator": "v172_numerator",
+        "denominator": "v172_denominator",
+        "cilow": "v172_cilow",
+        "cihigh": "v172_cihigh"
+      },
+      "description": "Child Care Centers raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v141",
+      "columns": {
+        "rawvalue": "v141_rawvalue",
+        "numerator": "v141_numerator",
+        "denominator": "v141_denominator",
+        "cilow": "v141_cilow",
+        "cihigh": "v141_cihigh"
+      },
+      "description": "Residential Segregation - Black/White raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v015",
+      "columns": {
+        "rawvalue": "v015_rawvalue",
+        "numerator": "v015_numerator",
+        "denominator": "v015_denominator",
+        "cilow": "v015_cilow",
+        "cihigh": "v015_cihigh",
+        "race_aian": "v015_race_aian",
+        "race_aian_cilow": "v015_race_aian_cilow",
+        "race_aian_cihigh": "v015_race_aian_cihigh",
+        "race_asian": "v015_race_asian",
+        "race_asian_cilow": "v015_race_asian_cilow",
+        "race_asian_cihigh": "v015_race_asian_cihigh",
+        "race_black": "v015_race_black",
+        "race_black_cilow": "v015_race_black_cilow",
+        "race_black_cihigh": "v015_race_black_cihigh",
+        "race_hispanic": "v015_race_hispanic",
+        "race_hispanic_cilow": "v015_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v015_race_hispanic_cihigh",
+        "race_white": "v015_race_white",
+        "race_white_cilow": "v015_race_white_cilow",
+        "race_white_cihigh": "v015_race_white_cihigh",
+        "race_nhopi": "v015_race_nhopi",
+        "race_nhopi_cilow": "v015_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v015_race_nhopi_cihigh"
+      },
+      "description": "Homicides raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v039",
+      "columns": {
+        "rawvalue": "v039_rawvalue",
+        "numerator": "v039_numerator",
+        "denominator": "v039_denominator",
+        "cilow": "v039_cilow",
+        "cihigh": "v039_cihigh",
+        "race_aian": "v039_race_aian",
+        "race_aian_cilow": "v039_race_aian_cilow",
+        "race_aian_cihigh": "v039_race_aian_cihigh",
+        "race_asian": "v039_race_asian",
+        "race_asian_cilow": "v039_race_asian_cilow",
+        "race_asian_cihigh": "v039_race_asian_cihigh",
+        "race_black": "v039_race_black",
+        "race_black_cilow": "v039_race_black_cilow",
+        "race_black_cihigh": "v039_race_black_cihigh",
+        "race_hispanic": "v039_race_hispanic",
+        "race_hispanic_cilow": "v039_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v039_race_hispanic_cihigh",
+        "race_white": "v039_race_white",
+        "race_white_cilow": "v039_race_white_cilow",
+        "race_white_cihigh": "v039_race_white_cihigh",
+        "race_nhopi": "v039_race_nhopi",
+        "race_nhopi_cilow": "v039_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v039_race_nhopi_cihigh"
+      },
+      "description": "Motor Vehicle Crash Deaths raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v148",
+      "columns": {
+        "rawvalue": "v148_rawvalue",
+        "numerator": "v148_numerator",
+        "denominator": "v148_denominator",
+        "cilow": "v148_cilow",
+        "cihigh": "v148_cihigh",
+        "race_aian": "v148_race_aian",
+        "race_aian_cilow": "v148_race_aian_cilow",
+        "race_aian_cihigh": "v148_race_aian_cihigh",
+        "race_asian": "v148_race_asian",
+        "race_asian_cilow": "v148_race_asian_cilow",
+        "race_asian_cihigh": "v148_race_asian_cihigh",
+        "race_black": "v148_race_black",
+        "race_black_cilow": "v148_race_black_cilow",
+        "race_black_cihigh": "v148_race_black_cihigh",
+        "race_hispanic": "v148_race_hispanic",
+        "race_hispanic_cilow": "v148_race_hispanic_cilow",
+        "race_hispanic_cihigh": "v148_race_hispanic_cihigh",
+        "race_white": "v148_race_white",
+        "race_white_cilow": "v148_race_white_cilow",
+        "race_white_cihigh": "v148_race_white_cihigh",
+        "race_nhopi": "v148_race_nhopi",
+        "race_nhopi_cilow": "v148_race_nhopi_cilow",
+        "race_nhopi_cihigh": "v148_race_nhopi_cihigh"
+      },
+      "description": "Firearm Fatalities raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v149",
+      "columns": {
+        "rawvalue": "v149_rawvalue",
+        "numerator": "v149_numerator",
+        "denominator": "v149_denominator",
+        "cilow": "v149_cilow",
+        "cihigh": "v149_cihigh"
+      },
+      "description": "Disconnected Youth raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v184",
+      "columns": {
+        "rawvalue": "v184_rawvalue",
+        "numerator": "v184_numerator",
+        "denominator": "v184_denominator",
+        "cilow": "v184_cilow",
+        "cihigh": "v184_cihigh"
+      },
+      "description": "Lack of Social and Emotional Support raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v052",
+      "columns": {
+        "rawvalue": "v052_rawvalue",
+        "numerator": "v052_numerator",
+        "denominator": "v052_denominator",
+        "cilow": "v052_cilow",
+        "cihigh": "v052_cihigh"
+      },
+      "description": "% Below 18 Years of Age raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v053",
+      "columns": {
+        "rawvalue": "v053_rawvalue",
+        "numerator": "v053_numerator",
+        "denominator": "v053_denominator",
+        "cilow": "v053_cilow",
+        "cihigh": "v053_cihigh"
+      },
+      "description": "% 65 and Older raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v057",
+      "columns": {
+        "rawvalue": "v057_rawvalue",
+        "numerator": "v057_numerator",
+        "denominator": "v057_denominator",
+        "cilow": "v057_cilow",
+        "cihigh": "v057_cihigh"
+      },
+      "description": "% Female raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v055",
+      "columns": {
+        "rawvalue": "v055_rawvalue",
+        "numerator": "v055_numerator",
+        "denominator": "v055_denominator",
+        "cilow": "v055_cilow",
+        "cihigh": "v055_cihigh"
+      },
+      "description": "% American Indian or Alaska Native raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v081",
+      "columns": {
+        "rawvalue": "v081_rawvalue",
+        "numerator": "v081_numerator",
+        "denominator": "v081_denominator",
+        "cilow": "v081_cilow",
+        "cihigh": "v081_cihigh"
+      },
+      "description": "% Asian raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v056",
+      "columns": {
+        "rawvalue": "v056_rawvalue",
+        "numerator": "v056_numerator",
+        "denominator": "v056_denominator",
+        "cilow": "v056_cilow",
+        "cihigh": "v056_cihigh"
+      },
+      "description": "% Hispanic raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v080",
+      "columns": {
+        "rawvalue": "v080_rawvalue",
+        "numerator": "v080_numerator",
+        "denominator": "v080_denominator",
+        "cilow": "v080_cilow",
+        "cihigh": "v080_cihigh"
+      },
+      "description": "% Native Hawaiian or Other Pacific Islander raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v054",
+      "columns": {
+        "rawvalue": "v054_rawvalue",
+        "numerator": "v054_numerator",
+        "denominator": "v054_denominator",
+        "cilow": "v054_cilow",
+        "cihigh": "v054_cihigh"
+      },
+      "description": "% Non-Hispanic Black raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v126",
+      "columns": {
+        "rawvalue": "v126_rawvalue",
+        "numerator": "v126_numerator",
+        "denominator": "v126_denominator",
+        "cilow": "v126_cilow",
+        "cihigh": "v126_cihigh"
+      },
+      "description": "% Non-Hispanic White raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v180",
+      "columns": {
+        "rawvalue": "v180_rawvalue",
+        "numerator": "v180_numerator",
+        "denominator": "v180_denominator",
+        "cilow": "v180_cilow",
+        "cihigh": "v180_cihigh"
+      },
+      "description": "% Disability: Functional Limitations raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v059",
+      "columns": {
+        "rawvalue": "v059_rawvalue",
+        "numerator": "v059_numerator",
+        "denominator": "v059_denominator",
+        "cilow": "v059_cilow",
+        "cihigh": "v059_cihigh"
+      },
+      "description": "% Not Proficient in English raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v082",
+      "columns": {
+        "rawvalue": "v082_rawvalue",
+        "numerator": "v082_numerator",
+        "denominator": "v082_denominator",
+        "cilow": "v082_cilow",
+        "cihigh": "v082_cihigh"
+      },
+      "description": "Children in Single-Parent Households raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v058",
+      "columns": {
+        "rawvalue": "v058_rawvalue",
+        "numerator": "v058_numerator",
+        "denominator": "v058_denominator",
+        "cilow": "v058_cilow",
+        "cihigh": "v058_cihigh"
+      },
+      "description": "% Rural raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    },
+    {
+      "id": "v051",
+      "columns": {
+        "rawvalue": "v051_rawvalue",
+        "numerator": "v051_numerator",
+        "denominator": "v051_denominator",
+        "cilow": "v051_cilow",
+        "cihigh": "v051_cihigh"
+      },
+      "description": "Population raw value",
+      "complete": true,
+      "has_confidence_intervals": true
+    }
+  ],
+  "malformed": [],
+  "summary": {
+    "total_indicators": 90,
+    "complete_indicators": 90,
+    "indicators_with_ci": 90,
+    "malformed_count": 0,
+    "total_columns_processed": 796
+  }
+}
