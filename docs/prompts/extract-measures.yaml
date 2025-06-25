@@ -1,0 +1,130 @@
+metadata:
+  version: "1.0"
+  author: "claude"
+  created: "2025-01-20"
+  last_updated: "2025-01-20"
+  tags: ["data", "etl", "parsing", "chr", "health-indicators"]
+  
+prompt:
+  role: "You are a data analyst specializing in public health datasets"
+  context: |
+    The County Health Rankings (CHR) dataset contains approximately 800 columns 
+    following specific naming patterns for health indicators:
+    
+    Pattern: v###_suffix where ### is a 3-digit indicator ID
+    Common suffixes:
+    - _rawvalue (primary metric value)
+    - _numerator (count/cases)
+    - _denominator (population/total)
+    - _ci_low (95% confidence interval lower bound)
+    - _ci_high (95% confidence interval upper bound)
+    
+    Examples:
+    - v001_rawvalue, v001_numerator, v001_denominator
+    - v023_rawvalue, v023_ci_low, v023_ci_high
+    - v156_rawvalue (might exist alone without CI)
+    
+    Additional context columns include:
+    - fipscode (5-digit county identifier)
+    - state (state name)
+    - county (county name)
+    - year (data collection year)
+    
+  task: "Extract all unique health indicator IDs from CHR column headers and group their associated columns by indicator"
+  
+  inputs:
+    - column_headers: "List of all column names from the CHR CSV file"
+    - validation_schema: "Optional JSON schema for expected data structure"
+    
+validation:
+  expected_output_format: "JSON"
+  minimum_requirements: 
+    - "At least 10 valid health indicators identified"
+    - "Each indicator has at least a rawvalue column"
+    - "Malformed or incomplete indicators are flagged separately"
+  required_fields: ["indicators", "malformed", "summary"]
+  
+examples:
+  - input: 
+      column_headers: ["fipscode", "state", "county", "year", "v001_rawvalue", "v001_numerator", "v001_denominator", "v001_ci_low", "v001_ci_high", "v023_rawvalue", "v023_ci_low", "v023_ci_high", "v156_rawvalue", "v999_malformed"]
+    output: |
+      {
+        "indicators": [
+          {
+            "id": "v001",
+            "columns": {
+              "rawvalue": "v001_rawvalue",
+              "numerator": "v001_numerator", 
+              "denominator": "v001_denominator",
+              "ci_low": "v001_ci_low",
+              "ci_high": "v001_ci_high"
+            },
+            "complete": true,
+            "has_confidence_intervals": true
+          },
+          {
+            "id": "v023", 
+            "columns": {
+              "rawvalue": "v023_rawvalue",
+              "ci_low": "v023_ci_low",
+              "ci_high": "v023_ci_high"
+            },
+            "complete": true,
+            "has_confidence_intervals": true
+          },
+          {
+            "id": "v156",
+            "columns": {
+              "rawvalue": "v156_rawvalue"
+            },
+            "complete": true, 
+            "has_confidence_intervals": false
+          }
+        ],
+        "malformed": [
+          {
+            "id": "v999",
+            "issue": "Incomplete indicator - only malformed column found",
+            "columns": ["v999_malformed"]
+          }
+        ],
+        "summary": {
+          "total_indicators": 3,
+          "complete_indicators": 3,
+          "indicators_with_ci": 2,
+          "malformed_count": 1,
+          "total_columns_processed": 9
+        }
+      }
+      
+notes: |
+  Special considerations:
+  
+  1. **Regex Pattern**: Use `v(\d{3})_(.+)` to extract indicator ID and suffix
+  
+  2. **Validation Rules**:
+     - Indicator must have at least a rawvalue column to be considered valid
+     - Numerator and denominator should appear together or not at all
+     - CI bounds (ci_low, ci_high) should appear together or not at all
+     
+  3. **Edge Cases**:
+     - Some indicators may only have rawvalue (acceptable)
+     - Some may have unusual suffixes (flag as malformed)
+     - Leading zeros in IDs are significant (v001 ≠ v1)
+     
+  4. **Data Quality Flags**:
+     - Mark indicators missing rawvalue as malformed
+     - Flag mismatched numerator/denominator pairs
+     - Note orphaned CI bounds without rawvalue
+     
+  5. **Performance Considerations**:
+     - Process columns in batches if dataset is very large
+     - Use dictionary lookups for O(1) grouping performance
+     
+  6. **Output Requirements**:
+     - Include complete indicator catalog for downstream processing
+     - Separate malformed indicators for human review
+     - Provide summary statistics for validation
+     
+  This template should be used as the first step in CHR data processing
+  to build a reliable indicator catalog for the HealthRankDash application. 
